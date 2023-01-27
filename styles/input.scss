@@ -1,12 +1,23 @@
 @use "./artist-page.scss";
 
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
+
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+p {
+	font-family: "Barlow", sans-serif;
+}
+
+h1 {
+	font-family: "Bellefair", serif;
+	font-weight: 400;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  background-color: black;
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
 }
