@@ -4,6 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "sass": "sass --watch styles/input.scss styles/output.css"
+    "sass": "sass --watch --no-source-map styles/input.scss:styles/output.css"
   }
 }
