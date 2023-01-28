@@ -48,7 +48,9 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
   }
   .text {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
   }
   .title {
     text-align: left;
@@ -262,8 +264,8 @@ h6 {
 }
 
 :root {
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
-  --fs-800: 3.5rem;
+  --fs-900: 5rem;
+  --fs-800: 4rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
   --fs-500: 1rem;
@@ -296,7 +298,7 @@ h6 {
 }
 
 .letter-spacing-3 {
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .uppercase {
@@ -340,6 +342,13 @@ h6 {
 .fs-700,
 .fs-600 {
   line-height: 1.1;
+}
+
+:root {
+  --spacing-unit: 1em;
+  --spacing-s: calc(0.5 * var(--spacing-unit));
+  --spacing-m: calc(1 * var(--spacing-unit));
+  --spacing-l: calc(2 * var(--spacing-unit));
 }
 
 body {

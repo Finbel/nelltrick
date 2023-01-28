@@ -3,6 +3,7 @@
 @use './global.scss';
 @use './colors.scss';
 @use './typography.scss';
+@use './sizes.scss';
 
 body {
   color: hsl(var(--clr-white));

@@ -53,7 +53,9 @@
   }
 
   .text {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
   }
 
   .title {
