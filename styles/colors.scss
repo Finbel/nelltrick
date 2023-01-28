@@ -1,0 +1,25 @@
+:root {
+  --clr-dark: 114, 0%, 0%;
+  --clr-light: ;
+  --clr-white: 321, 0%, 100%;
+}
+
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-accent {
+  color: hsl(var(--clr-light));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}

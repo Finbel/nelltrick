@@ -1,24 +1,11 @@
 @use './artist-page.scss';
 @use './artists-page.scss';
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-p {
-  font-family: 'Barlow', sans-serif;
-}
-
-h1 {
-  font-family: 'Bellefair', serif;
-  font-weight: 400;
-}
+@use './global.scss';
+@use './colors.scss';
+@use './typography.scss';
+@use './sizes.scss';
 
 body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  background-color: black;
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-dark));
 }

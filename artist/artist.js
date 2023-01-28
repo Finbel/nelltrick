@@ -15,6 +15,10 @@ fetch(`../artists.json`)
 
     // Set the artist title
     title.innerText = artist.name
+    if (artist.name.length > 15) {
+      title.classList.remove('fs-800')
+      title.classList.add('fs-700')
+    }
 
     // Write the artist description
     artist.description.forEach((paragraph) => {
