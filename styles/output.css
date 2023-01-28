@@ -86,6 +86,14 @@
   margin-bottom: 0.3em;
 }
 
+.image-container {
+  transition: opacity 3s;
+}
+
+.invisible {
+  opacity: 0;
+}
+
 @media (min-width: 500px) {
   .images {
     flex-direction: row;

@@ -37,7 +37,7 @@ fetch(`../artists.json`)
 
 function appendMotifImage(images, artistId, motif) {
   const container = document.createElement('div')
-  container.setAttribute('class', 'image-container')
+  container.classList.add('image-container', 'invisible')
   const motifImage = document.createElement('img')
   const motifText = document.createElement('p')
   motifText.innerText = motif.prettyName
@@ -47,5 +47,8 @@ function appendMotifImage(images, artistId, motif) {
   motifImage.src = `../images/${artistId}/${motif.id}.png`
   motifImage.onerror = () => {
     images.removeChild(container)
+  }
+  motifImage.onload = () => {
+    container.classList.remove('invisible')
   }
 }
