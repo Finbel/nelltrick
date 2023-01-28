@@ -1,3 +1,5 @@
+const artistsList = document.getElementById('artists-list')
+
 fetch(`./artists.json`)
   .then((response) => response.json())
   .then(({ artists }) => {
@@ -5,6 +7,6 @@ fetch(`./artists.json`)
       const link = document.createElement('a')
       link.innerText = artist.name
       link.href = `/artist/index.html?artist=${artist.id}`
-      document.body.appendChild(link)
+      artistsList.appendChild(link)
     })
   })
