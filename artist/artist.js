@@ -40,19 +40,53 @@ fetch(`../artists.json`)
   .catch((error) => console.log(error))
 
 function appendMotifImage(images, artistId, motif) {
+  const imageSrc = `../images/${artistId}/${motif.id}.png`
   const container = document.createElement('div')
   container.classList.add('image-container', 'invisible')
   const motifImage = document.createElement('img')
+  motifImage.src = imageSrc
   const motifText = document.createElement('p')
   motifText.innerText = motif.prettyName
   container.appendChild(motifImage)
   container.appendChild(motifText)
   images.appendChild(container)
-  motifImage.src = `../images/${artistId}/${motif.id}.png`
+  container.onclick = makeClickHandler(imageSrc, motif.prettyName)
   motifImage.onerror = () => {
     images.removeChild(container)
   }
   motifImage.onload = () => {
     container.classList.remove('invisible')
   }
+}
+
+function makeClickHandler(imageSrc, titleText) {
+  const clickHandler = () => {
+    const image = document.createElement('img')
+    image.classList.add('modal-image')
+    image.src = imageSrc
+    const backdrop = document.createElement('div')
+    const title = document.createElement('h2')
+    title.innerText = titleText
+    title.classList.add()
+    backdrop.classList.add('backdrop')
+    backdrop.appendChild(image)
+    backdrop.appendChild(title)
+    document.body.appendChild(backdrop)
+    backdrop.onclick = () => document.body.removeChild(backdrop)
+  }
+  return clickHandler
+}
+
+if (window.innerWidth > 800) {
+  window.addEventListener('scroll', function () {
+    const currScrollPos2 =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0
+    if (currScrollPos2 > 400) {
+      document.getElementById('portrait').style.opacity =
+        -currScrollPos2 / 400 + 2
+    }
+  })
 }

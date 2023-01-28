@@ -4,8 +4,10 @@
 @use './colors.scss';
 @use './typography.scss';
 @use './sizes.scss';
+@use './modal.scss';
 
 body {
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));
+  height: auto;
 }

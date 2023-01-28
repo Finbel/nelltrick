@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
+  pointer-events: none;
 }
 
 .images img {
@@ -26,6 +27,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    pointer-events: auto;
   }
   .image-container {
     width: 49.5%;
@@ -47,6 +49,7 @@
     grid-template-columns: 250px 250px 250px;
     max-width: 75vw;
     column-gap: calc(calc(calc(100vw - 250px) - 750px) / 4);
+    row-gap: calc(calc(calc(100vw - 250px) - 750px) / 6);
     z-index: 2;
   }
 
