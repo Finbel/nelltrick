@@ -67,7 +67,6 @@ function makeClickHandler(imageSrc, titleText) {
     const backdrop = document.createElement('div')
     const title = document.createElement('h2')
     title.innerText = titleText
-    title.classList.add()
     backdrop.classList.add('backdrop')
     backdrop.appendChild(image)
     backdrop.appendChild(title)
@@ -77,16 +76,20 @@ function makeClickHandler(imageSrc, titleText) {
   return clickHandler
 }
 
-if (window.innerWidth > 800) {
-  window.addEventListener('scroll', function () {
-    const currScrollPos2 =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0
-    if (currScrollPos2 > 400) {
-      document.getElementById('portrait').style.opacity =
-        -currScrollPos2 / 400 + 2
+window.addEventListener('scroll', function () {
+  const offsetFromTop =
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop ||
+    0
+  if (window.innerWidth > 800) {
+    if (offsetFromTop > 300) {
+      document.getElementById('portrait').style.opacity = Math.max(
+        -offsetFromTop / 400 + 7 / 4,
+        0.3
+      )
+    } else {
+      document.getElementById('portrait').style.opacity = 1
     }
-  })
-}
+  }
+})
