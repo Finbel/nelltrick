@@ -39,18 +39,19 @@ fetch(`../artists.json`)
   })
   .catch((error) => console.log(error))
 
-function appendMotifImage(images, artistId, motif) {
-  const imageSrc = `../images/${artistId}/${motif.id}.png`
+function appendMotifImage(images, artistId, motifId) {
+  const imageSrc = `../images/${artistId}/${motifId}.png`
+  const prettyName = prettyMotifName(motifId)
   const container = document.createElement('div')
   container.classList.add('image-container', 'invisible')
   const motifImage = document.createElement('img')
   motifImage.src = imageSrc
   const motifText = document.createElement('p')
-  motifText.innerText = motif.prettyName
+  motifText.innerText = prettyName
   container.appendChild(motifImage)
   container.appendChild(motifText)
   images.appendChild(container)
-  container.onclick = makeClickHandler(imageSrc, motif.prettyName)
+  container.onclick = makeClickHandler(imageSrc, prettyName)
   motifImage.onerror = () => {
     images.removeChild(container)
   }
@@ -93,3 +94,9 @@ window.addEventListener('scroll', function () {
     }
   }
 })
+
+function prettyMotifName(motifId) {
+  const firstLetter = motifId[0]
+  const restOfName = motifId.slice(1)
+  return `${firstLetter.toUpperCase()}${restOfName.replaceAll('_', ' ')}`
+}
