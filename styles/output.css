@@ -395,6 +395,11 @@ h6 {
   max-height: 90vw;
 }
 
+.motif-title {
+  color: white;
+  text-underline-offset: 0.2em;
+}
+
 body {
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));

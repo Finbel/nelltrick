@@ -10,3 +10,20 @@ fetch(`./artists.json`)
       artistsList.appendChild(link)
     })
   })
+
+fetch(`./motifs.json`)
+  .then((response) => response.json())
+  .then(({ motifs }) => {
+    motifs.forEach((motif) => {
+      const link = document.createElement('a')
+      link.innerText = prettyMotifName(motif)
+      link.href = `./motif/index.html?motif=${motif}`
+      artistsList.appendChild(link)
+    })
+  })
+
+function prettyMotifName(motifId) {
+  const firstLetter = motifId[0]
+  const restOfName = motifId.slice(1)
+  return `${firstLetter.toUpperCase()}${restOfName.replaceAll('_', ' ')}`
+}
