@@ -1,72 +1,21 @@
 {
   "motifs": [
-    {
-      "id": "celestial_scene",
-      "prettyName": "Celestial scene"
-    },
-    {
-      "id": "mythological_creature",
-      "prettyName": "Mythological creature"
-    },
-    {
-      "id": "landscape",
-      "prettyName": "Landscape"
-    },
-    {
-      "id": "seascape",
-      "prettyName": "Seascape"
-    },
-    {
-      "id": "still_life_in_motion",
-      "prettyName": "Still life in motion"
-    },
-    {
-      "id": "stormtrooper",
-      "prettyName": "Stormtrooper"
-    },
-    {
-      "id": "botanical",
-      "prettyName": "Botanical"
-    },
-    {
-      "id": "family_pets",
-      "prettyName": "Family pets"
-    },
-    {
-      "id": "horse",
-      "prettyName": "Horse"
-    },
-    {
-      "id": "science_fiction",
-      "prettyName": "Science fiction"
-    },
-    {
-      "id": "samurai",
-      "prettyName": "Samurai"
-    },
-    {
-      "id": "viking",
-      "prettyName": "Viking"
-    },
-    {
-      "id": "a_hand",
-      "prettyName": "A hand"
-    },
-    {
-      "id": "urban_horizon",
-      "prettyName": "Urban horizon"
-    },
-    {
-      "id": "interior_scene",
-      "prettyName": "Interior scene"
-    },
-    {
-      "id": "battle_formations",
-      "prettyName": "Battle formations"
-    },
-    {
-      "id": "magical_forest",
-      "prettyName": "Magical forest"
-    }
+    "celestial_scene",
+    "mythological_creature",
+    "landscape",
+    "seascape",
+    "still_life_in_motion",
+    "stormtrooper",
+    "botanical",
+    "family_pets",
+    "horse",
+    "science_fiction",
+    "samurai",
+    "viking",
+    "a_hand",
+    "urban_horizon",
+    "interior_scene",
+    "battle_formations",
+    "magical_forest"
   ]
 }

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap");
-.artist {
+.header {
   background-color: black;
   height: 100px;
   display: flex;
@@ -7,6 +7,7 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .info {
@@ -33,9 +34,10 @@
 }
 
 @media (min-width: 800px) {
-  .artist {
+  .header {
     position: relative;
     height: 300px;
+    z-index: 0;
   }
   .info {
     display: flex;
@@ -57,7 +59,7 @@
   }
 }
 @media (min-width: 1000px) {
-  .artist {
+  .header {
     background-color: transparent;
     min-height: calc(100vh - 275px);
   }
