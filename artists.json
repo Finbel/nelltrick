@@ -10,10 +10,17 @@
     },
     {
       "id": "elisabeth_louise_vigee_le_brun",
-      "name": "Élisabeth Vigée Le Brun",
+      "name": "Élisabeth Vigée le Brun",
       "description": [
         "Élisabeth Louise Vigée Le Brun (16 April 1755 – 30 March 1842), also known as Madame Le Brun, was a French portrait painter, especially of women, in the late 18th and early 19th centuries.",
         "Her artistic style is generally considered part of the aftermath of Rococo with elements of an adopted Neoclassical style. Her subject matter and color palette can be classified as Rococo, but her style is aligned with the emergence of Neoclassicism. Vigée Le Brun created a name for herself in Ancien Régime society by serving as the portrait painter to Marie Antoinette. She enjoyed the patronage of European aristocrats, actors, and writers, and was elected to art academies in ten cities."
+      ]
+    },
+    {
+      "id": "leonardo_da_vinci",
+      "name": "Leonardo da Vinci",
+      "description": [
+        "Leonardo di ser Piero da Vinci (15 April 1452 – 2 May 1519) was an Italian polymath of the High Renaissance who was active as a painter, draughtsman, engineer, scientist, theorist, sculptor, and architect. While his fame initially rested on his achievements as a painter, he also became known for his notebooks, in which he made drawings and notes on a variety of subjects, including anatomy, astronomy, botany, cartography, painting, and paleontology. Leonardo is widely regarded to have been a genius who epitomized the Renaissance humanist ideal, and his collective works comprise a contribution to later generations of artists matched only by that of his younger contemporary, Michelangelo."
       ]
     }
   ]
