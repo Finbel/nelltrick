@@ -46,7 +46,7 @@ function appendMotifImage(images, artistId, motifId) {
   container.classList.add('image-container', 'invisible')
   const motifImage = document.createElement('img')
   motifImage.src = imageSrc
-  const motifText = document.createElement('a')
+  const motifText = document.createElement('p')
   motifText.innerText = prettyName
   container.appendChild(motifImage)
   container.appendChild(motifText)

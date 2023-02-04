@@ -14,11 +14,18 @@
 .modal-image {
   width: 600px;
   height: 600px;
-  max-width: 90vw;
-  max-height: 90vw;
+  max-width: 100vw;
+  max-height: 100vw;
 }
 
 .motif-title {
   color: white;
   text-underline-offset: 0.2em;
+}
+
+@media (min-width: 600px) {
+  .modal-image {
+    max-width: 90vw;
+    max-height: 90vw;
+  }
 }
