@@ -1,3 +1,17 @@
+const getNextPossibilityFunction = (possibilities) => {
+  const indices = []
+  for (let i = 0; i < possibilities.length; i++) {
+    indices.push(i)
+  }
+  const shuffledIndices = [...indices].sort(() => 0.5 - Math.random())
+  let currentIndex = 0
+  return () => {
+    const index = shuffledIndices[currentIndex]
+    currentIndex = (currentIndex + 1) % possibilities.length
+    return possibilities[index]
+  }
+}
+
 const images = document.getElementById('images')
 fetch(`./artists.json`)
   .then((response) => response.json())
@@ -13,22 +27,12 @@ function generate(artists, motifs) {
   const possibilities = artists
     .map((artist) => motifs.map((motifId) => ({ artist, motifId })))
     .flat()
-  const indices = []
-  for (let i = 0; i < possibilities.length; i++) {
-    console.log('pushing', i)
-    indices.push(i)
-  }
-  console.log({ 'possibilities.length': possibilities.length })
 
-  const shuffledIndices = [...indices].sort(() => 0.5 - Math.random())
-  let currentIndex = 0
+  const getNextPossibility = getNextPossibilityFunction(possibilities)
   const imagesOnScreen = imagesNeededToFillScreen()
-  while (currentIndex < imagesOnScreen && currentIndex < possibilities.length) {
-    const index = shuffledIndices[currentIndex]
-    console.log({ currentIndex, index })
-    const { artist, motifId } = possibilities[index]
-    appendMotifImage(images, artist, motifId, currentIndex)
-    currentIndex++
+  for (let i = 0; i < imagesOnScreen; i++) {
+    const { artist, motifId } = getNextPossibility()
+    appendMotifImage(images, artist, motifId)
   }
   console.log(possibilities.length)
 
@@ -38,9 +42,7 @@ function generate(artists, motifs) {
     randomImage.classList.add('invisible')
     setTimeout(() => {
       const imageElement = randomImage.getElementsByTagName('img')[0]
-      const index = shuffledIndices[currentIndex]
-      console.log({ currentIndex, index })
-      const { artist, motifId } = possibilities[index]
+      const { artist, motifId } = getNextPossibility()
       const imageSrc = `../images/${artist.id}/${motifId}.png`
       imageElement.src = imageSrc
       randomImage.onclick = makeClickHandler(imageSrc, motifId, artist)
@@ -48,7 +50,6 @@ function generate(artists, motifs) {
         randomImage.classList.remove('invisible')
       }
     }, 2500)
-    currentIndex = (currentIndex + 1) % possibilities.length
   }, 3000)
 }
 
@@ -82,7 +83,7 @@ function imagesNeededToFillScreen() {
   return imagesPerRow * imagesPerColumn
 }
 
-function appendMotifImage(images, artist, motifId, currentIndex) {
+function appendMotifImage(images, artist, motifId) {
   const artistId = artist.id
   const imageSrc = `../images/${artistId}/${motifId}.png`
   const prettyName = prettyMotifName(motifId)
