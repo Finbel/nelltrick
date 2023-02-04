@@ -1,3 +1,17 @@
+const getNextImageIndexFunction = (imagesOnScreen) => {
+  const indices = []
+  for (let i = 0; i < imagesOnScreen; i++) {
+    indices.push(i)
+  }
+  const shuffledIndices = [...indices].sort(() => 0.5 - Math.random())
+  let currentIndex = 0
+  return () => {
+    const index = shuffledIndices[currentIndex]
+    currentIndex = (currentIndex + 1) % imagesOnScreen
+    return index
+  }
+}
+
 const getNextPossibilityFunction = (possibilities) => {
   const indices = []
   for (let i = 0; i < possibilities.length; i++) {
@@ -28,17 +42,18 @@ function generate(artists, motifs) {
     .map((artist) => motifs.map((motifId) => ({ artist, motifId })))
     .flat()
 
-  const getNextPossibility = getNextPossibilityFunction(possibilities)
   const imagesOnScreen = imagesNeededToFillScreen()
+  const getNextPossibility = getNextPossibilityFunction(possibilities)
+
   for (let i = 0; i < imagesOnScreen; i++) {
     const { artist, motifId } = getNextPossibility()
     appendMotifImage(images, artist, motifId)
   }
-  console.log(possibilities.length)
-
+  const getNextImageIndex = getNextImageIndexFunction(imagesOnScreen)
   setInterval(() => {
     const images = document.getElementsByClassName('startpage-image-container')
-    const randomImage = images[Math.floor(Math.random() * images.length)]
+    const index = getNextImageIndex()
+    const randomImage = images[index]
     randomImage.classList.add('invisible')
     setTimeout(() => {
       const imageElement = randomImage.getElementsByTagName('img')[0]
@@ -50,13 +65,10 @@ function generate(artists, motifs) {
         randomImage.classList.remove('invisible')
       }
     }, 2500)
-  }, 3000)
+  }, 3500)
 }
 
 const getImagesPerRow = (width) => {
-  if (width > 1000) {
-    return 8
-  }
   if (width > 800) {
     return 5
   }
@@ -67,20 +79,17 @@ const getImagesPerRow = (width) => {
 }
 
 function imagesNeededToFillScreen() {
+  // First we need to see how many images we have in a row
   const width = window.innerWidth
   const imagesPerRow = getImagesPerRow(width)
-  // i.e. 400
+  // from that we can calculate the length of the side of an image
+  const lengthOfSide = width / imagesPerRow
+  // and from that together with the height we can calculate
+  // how many rows of images we will have
   const height = window.innerHeight
-  // i.e. 821
-  const heightToWidthratio = height / width
-  // i.e. 2.0525
-  console.log(width, height, heightToWidthratio)
-  // if we have imagesPerRow in width
-  // we should have Ceil(heightToWidthratio) * imagesPerRow images in height
-  const imagesPerColumn = Math.ceil(heightToWidthratio) * imagesPerRow
-  // and imagesPerRow * imagesPerColumn in total
-  console.log(imagesPerRow * imagesPerColumn)
-  return imagesPerRow * imagesPerColumn
+  const numberOfRows = height / lengthOfSide
+  // We'll round up to make sure to fill the screen
+  return Math.ceil(numberOfRows) * imagesPerRow
 }
 
 function appendMotifImage(images, artist, motifId) {
