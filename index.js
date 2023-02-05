@@ -58,7 +58,7 @@ function generate(artists, motifs) {
     setTimeout(() => {
       const imageElement = randomImage.getElementsByTagName('img')[0]
       const { artist, motifId } = getNextPossibility()
-      const imageSrc = `../images/${artist.id}/${motifId}.png`
+      const imageSrc = `./images/${artist.id}/${motifId}.png`
       imageElement.src = imageSrc
       randomImage.onclick = makeClickHandler(imageSrc, motifId, artist)
       imageElement.onload = () => {
