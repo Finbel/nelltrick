@@ -94,7 +94,7 @@ function imagesNeededToFillScreen() {
 
 function appendMotifImage(images, artist, motifId) {
   const artistId = artist.id
-  const imageSrc = `../images/${artistId}/${motifId}.png`
+  const imageSrc = `./images/${artistId}/${motifId}.png`
   const prettyName = prettyMotifName(motifId)
   const container = document.createElement('div')
   container.classList.add('startpage-image-container', 'invisible')
@@ -126,7 +126,7 @@ function makeClickHandler(imageSrc, motifId, artist) {
 
     const motifName = document.createElement('a')
     motifName.innerText = prettyMotifName(motifId)
-    motifName.href = `../motif/index.html?motif=${motifId}`
+    motifName.href = `./motif/index.html?motif=${motifId}`
     motifName.classList.add('motif-title', 'fs-600')
 
     const text = document.createTextNode(' by ')
@@ -134,14 +134,14 @@ function makeClickHandler(imageSrc, motifId, artist) {
 
     const artistName = document.createElement('a')
     artistName.innerText = artist.name
-    artistName.href = `../artist/index.html?artist=${artist.id}`
+    artistName.href = `./artist/index.html?artist=${artist.id}`
     artistName.classList.add('motif-title', 'fs-600')
 
     title.appendChild(motifName)
     title.appendChild(text)
     title.appendChild(artistName)
 
-    title.href = `../motif/index.html?motif=${motifId}`
+    title.href = `./motif/index.html?motif=${motifId}`
     backdrop.classList.add('backdrop')
     backdrop.appendChild(image)
     backdrop.appendChild(title)
