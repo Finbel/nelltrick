@@ -4,44 +4,28 @@ const portrait = document.getElementById('portrait')
 const images = document.getElementById('images')
 
 const params = new URL(document.location).searchParams
-const artistId = params.get('artist')
+const motifId = params.get('motif')
 
-portrait.src = `../images/${artistId}/bg.png`
+// portrait.src = `../images/${motifId}/bg.png`
+
+// Set the artist title
+title.innerText = prettyMotifName(motifId)
+if (prettyMotifName(motifId).length > 15) {
+  title.classList.remove('fs-800')
+  title.classList.add('fs-700')
+}
 
 fetch(`../artists.json`)
   .then((response) => response.json())
   .then(({ artists }) => {
-    const artist = artists.find((artist) => artist.id === artistId)
-
-    // Set the artist title
-    title.innerText = artist.name
-    if (artist.name.length > 15) {
-      title.classList.remove('fs-800')
-      title.classList.add('fs-700')
-    }
-
-    // Write the artist description
-    artist.description.forEach((paragraph) => {
-      const p = text.appendChild(document.createElement('p'))
-      p.innerText = paragraph
-    })
-
-    // Add artist image alt text
-    portrait.alt = `Portrait by ${artist.name} --ar 2:3`
-
+    artists.forEach((artist) => appendMotifImage(images, artist, motifId))
     // Now we need to fetch all the motifs
-    fetch(`../motifs.json`)
-      .then((response) => response.json())
-      .then(({ motifs }) => {
-        // For each motif we append an image with text
-        motifs.forEach((motif) => appendMotifImage(images, artistId, motif))
-      })
   })
   .catch((error) => console.log(error))
 
-function appendMotifImage(images, artistId, motifId) {
-  const imageSrc = `../images/${artistId}/${motifId}.png`
-  const prettyName = prettyMotifName(motifId)
+function appendMotifImage(images, artist, motifId) {
+  const imageSrc = `../images/${artist.id}/${motifId}.png`
+  const prettyName = artist.name
   const container = document.createElement('div')
   container.classList.add('image-container', 'invisible')
   const motifImage = document.createElement('img')
@@ -51,7 +35,7 @@ function appendMotifImage(images, artistId, motifId) {
   container.appendChild(motifImage)
   container.appendChild(motifText)
   images.appendChild(container)
-  container.onclick = makeClickHandler(imageSrc, motifId)
+  container.onclick = makeClickHandler(imageSrc, artist)
   motifImage.onerror = () => {
     images.removeChild(container)
   }
@@ -60,16 +44,16 @@ function appendMotifImage(images, artistId, motifId) {
   }
 }
 
-function makeClickHandler(imageSrc, motifId) {
+function makeClickHandler(imageSrc, artist) {
   const clickHandler = () => {
     const image = document.createElement('img')
     image.classList.add('modal-image')
     image.src = imageSrc
     const backdrop = document.createElement('div')
     const title = document.createElement('a')
-    title.innerText = prettyMotifName(motifId)
     title.classList.add('motif-title', 'fs-600')
-    title.href = `../motif/index.html?motif=${motifId}`
+    title.innerText = artist.name
+    title.href = `../artist/index.html?artist=${artist.id}`
     backdrop.classList.add('backdrop')
     backdrop.appendChild(image)
     backdrop.appendChild(title)
