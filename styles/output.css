@@ -77,13 +77,18 @@
 }
 .images {
   display: flex;
-  flex-direction: column;
   width: 100vw;
-  pointer-events: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px;
 }
 
 .images img {
   width: 100%;
+}
+
+.image-container {
+  width: calc(50% - 3px);
 }
 
 .image-container p {
@@ -100,12 +105,6 @@
 }
 
 @media (min-width: 500px) {
-  .images {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    pointer-events: auto;
-  }
   .image-container {
     width: 49.5%;
   }

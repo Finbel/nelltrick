@@ -11,7 +11,9 @@ portrait.src = `../images/${artistId}/bg.png`
 fetch(`../artists.json`)
   .then((response) => response.json())
   .then(({ artists }) => {
-    const artist = artists.find((artist) => artist.id === artistId)
+    const artist = artists.find(
+      (artist) => artist.id === artistId.toLocaleLowerCase()
+    )
 
     // Set the artist title
     title.innerText = artist.name
