@@ -18,7 +18,7 @@
     },
     {
       "id": "elisabeth_louise_vigee_le_brun",
-      "name": "Élisabeth Vigée le Brun",
+      "name": "Élisabeth Louise Vigée le Brun",
       "description": [
         "Élisabeth Louise Vigée Le Brun (16 April 1755 – 30 March 1842), also known as Madame Le Brun, was a French portrait painter, especially of women, in the late 18th and early 19th centuries.",
         "Her artistic style is generally considered part of the aftermath of Rococo with elements of an adopted Neoclassical style. Her subject matter and color palette can be classified as Rococo, but her style is aligned with the emergence of Neoclassicism. Vigée Le Brun created a name for herself in Ancien Régime society by serving as the portrait painter to Marie Antoinette. She enjoyed the patronage of European aristocrats, actors, and writers, and was elected to art academies in ten cities."
@@ -44,6 +44,27 @@
       "description": [
         "Edward Hopper (July 22, 1882 – May 15, 1967) was an American realist painter and printmaker. While he is widely known for his oil paintings, he was equally proficient as a watercolorist and printmaker in etching.",
         "Hopper created subdued drama out of commonplace subjects 'layered with a poetic meaning', inviting narrative interpretations. He was praised for \"complete verity\" in the America he portrayed. His career benefited significantly from his marriage to fellow-artist Josephine Nivison, who contributed much to his work, both as a life-model and as a creative partner."
+      ]
+    },
+    {
+      "id": "rembrandt",
+      "name": "Rembrandt",
+      "description": [
+        "Rembrandt Harmenszoon van Rijn (15 July 1606 – 4 October 1669), usually simply known as Rembrandt, was a Dutch Golden Age painter, printmaker and draughtsman. An innovative and prolific master in three media, he is generally considered one of the greatest visual artists in the history of art and the most important in Dutch art history."
+      ]
+    },
+    {
+      "id": "john_bauer",
+      "name": "John Bauer",
+      "description": [
+        "John Albert Bauer (4 June 1882 – 20 November 1918) was a Swedish painter and illustrator. His work is concerned with landscape and mythology, but he also composed portraits. He is best known for his illustrations of early editions of Bland tomtar och troll (Among Gnomes and Trolls), an anthology of Swedish folklore and fairy tales."
+      ]
+    },
+    {
+      "id": "hayao_miyazaki",
+      "name": "Hayao Miyazaki",
+      "description": [
+        "Hayao Miyazaki (宮崎 駿, Miyazaki Hayao; born January 5, 1941) is a Japanese animator, director, producer, screenwriter, author, and manga artist. A co-founder of Studio Ghibli, he has attained international acclaim as a masterful storyteller and creator of Japanese animated feature films, and is widely regarded as one of the most accomplished filmmakers in the history of animation."
       ]
     }
   ]
